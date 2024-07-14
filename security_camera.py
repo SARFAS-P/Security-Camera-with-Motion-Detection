@@ -1,11 +1,11 @@
 import cv2
 import winsound
-
+import time
 
 ###############################
 
 webcam = cv2.VideoCapture(1)
-
+pTime = 0
 
 ###############################
 
@@ -22,14 +22,21 @@ while True :
         else:
             winsound.Beep(2500,1000)
 
-   
+    # frame rate
+    cTime = time.time()
+    fps = 1/(cTime-pTime)
+    pTime = cTime
+    cv2.putText(thresh,str(int(fps)),(20,50),cv2.FONT_HERSHEY_PLAIN,3,(255,0,0),3) 
+    cv2.putText(im1,str(int(fps)),(20,50),cv2.FONT_HERSHEY_PLAIN,3,(255,0,0),3)
 
 
     cv2.imshow("Security Camera",thresh)
     cv2.imshow("real footaage",im1)
 
 
-    
+    # Break the loop if 'q' is pressed
+    if cv2.waitKey(1) & 0xFF == ord('q'):
+        break
 
 
 webcam.release()
