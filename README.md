@@ -33,3 +33,16 @@ This project is a simple security camera system built using opencv-Python. The s
 
 Run the script to start the security camera system:
 
+How It Works
+------------
+
+- The webcam captures video footage.
+- Each frame is converted to grayscale and blurred to reduce noise.
+- The system compares the current frame with the previous frame to detect any differences.
+- If significant differences are found (indicating motion), the alarm sounds using the winsound library.
+
+Contributing
+----------
+
+- Feel free to fork this repository and submit pull requests. For major changes, please open an issue first to discuss what you would like to change.
+
